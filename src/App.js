@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import {MusicPlayerProvider } from "./contexts/MusicPlayerContext";
+import TrackList from "./components/TrackList";
+import Controller from "./components/Controller";
+import * as React from 'react';
+import Box from '@mui/material/Box';
 
-function App() {
+import Modal from '@mui/material/Modal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MusicPlayerProvider>
+      <Modal
+        open="true"
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+        <TrackList />
+        <Controller />
+        </Box>
+      </Modal>
+    </MusicPlayerProvider>
   );
-}
+};
 
-export default App;
+export default App; 
