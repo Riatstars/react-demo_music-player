@@ -34,5 +34,4 @@ const App = () => {
     </MusicPlayerProvider>
   );
 };
-
 export default App; 

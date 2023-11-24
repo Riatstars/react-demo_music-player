@@ -5,14 +5,29 @@ import SkipNextIcon from '@mui/icons-material/SkipNext';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 import { Box, Button, ButtonGroup } from '@mui/material';
-const buttons = [
-  <Button key="previoous"><SkipPreviousIcon/></Button>,
-  <Button key="play"><PlayArrowIcon/></Button>,
-  <Button key="pause"><PauseIcon/></Button>,
-  <Button key="next"><SkipNextIcon/></Button>,
-];
+import useMusicPlayer from '../hooks/useMusicPlayer';
+
+
+
 
 function Controller() {
+
+  const {
+    playTrack,
+    togglePlay, 
+    isPlaying,
+    currentTrackIndex,
+    playPreviousTrack,
+    playNextTrack} = useMusicPlayer()
+
+    const buttons = [
+      // <Button onClick={()=>playTrack(1)} key="previoous">track1</Button>,
+
+      <Button onClick={()=>playPreviousTrack()} key="previoous"><SkipPreviousIcon/></Button>,
+      <Button onClick={()=>togglePlay()} style={{display: isPlaying? "none": ""}}  key="play"><PlayArrowIcon/></Button>,
+      <Button onClick={()=>togglePlay()} style={{display: !isPlaying? "none": ""}} key="pause"><PauseIcon/></Button>,
+      <Button onClick={()=>playNextTrack()}  key="next"><SkipNextIcon/></Button>,
+    ];
   return (
     <div>
       <LinearDeterminate/>

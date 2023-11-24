@@ -1,25 +1,32 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import useMusicPlayer from '../hooks/useMusicPlayer';
+
 
 export default function LinearDeterminate() {
-  const [progress, setProgress] = React.useState(0);
+  const {
 
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((oldProgress) => {
-        if (oldProgress === 100) {
-          return 0;
-        }
-        const diff = Math.random() * 10;
-        return Math.min(oldProgress + diff, 100);
-      });
-    }, 500);
+    progress
+    } = useMusicPlayer()
 
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+  // const [progress, setProgress] = React.useState(0);
+
+  // React.useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setProgress((oldProgress) => {
+  //       if (oldProgress === 100) {
+  //         return 0;
+  //       }
+  //       return Math.min(Math.ceil(currentProgress/trackDuration*100), 100)
+  //     });
+  //   }, 100);
+  //   console.log(123)
+
+  //   return () => {
+  //     clearInterval(timer);
+  //   };
+  // });
 
   return (
     <Box sx={{ width: '100%' }}>
