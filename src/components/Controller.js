@@ -13,10 +13,8 @@ import useMusicPlayer from '../hooks/useMusicPlayer';
 function Controller() {
 
   const {
-    playTrack,
     togglePlay, 
     isPlaying,
-    currentTrackIndex,
     playPreviousTrack,
     playNextTrack} = useMusicPlayer()
 

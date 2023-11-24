@@ -70,8 +70,6 @@ function useMusicPlayer() {
     currentTrackName:
         state.currentTrackIndex !== null &&
         state.tracks[state.currentTrackIndex].name,
-    trackDuration:state.audioPlayer.duration ,
-    currentProgress: state.audioPlayer.currentTime,
     trackList: state.tracks,
     isPlaying: state.isPlaying,
     currentTrackIndex: state.currentTrackIndex,
